@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>আয়েশা সিদ্দিক্বা (রাঃ) মডেল মিশন | ইসলামিক স্কুল</title>
+    <!-- Google Fonts: Bengali + Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Bengali', 'Segoe UI', system-ui, sans-serif;
+            background-color: #F5F5F5;
+            color: #1e293b;
+            scroll-behavior: smooth;
+            line-height: 1.5;
+        }
+
+        :root {
+            --navy: #0A1F44;
+            --gold: #D4AF37;
+            --white: #FFFFFF;
+            --gray-light: #F5F5F5;
+            --gray-mid: #e2e8f0;
+            --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header / Nav */
+        header {
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(2px);
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 55px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .school-name-text {
+            font-weight: 800;
+            font-size: 1.2rem;
+            line-height: 1.2;
+            color: var(--navy);
+        }
+        .school-name-text span {
+            color: var(--gold);
+            font-size: 0.9rem;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--navy);
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--gold);
+        }
+
+        .apply-btn {
+            background: var(--gold);
+            color: var(--navy) !important;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 700;
+        }
+        .apply-btn:hover {
+            background: #c4a22b;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f8f9fc 0%, #ffffff 100%);
+            padding: 60px 0 50px;
+        }
+        .hero-grid {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+        .hero-content {
+            flex: 1;
+        }
+        .hero-content h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1.2;
+        }
+        .hero-content h1 .gold-accent {
+            color: var(--gold);
+        }
+        .hero-content p {
+            margin: 20px 0 28px;
+            font-size: 1.1rem;
+            color: #334155;
+        }
+        .btn-primary {
+            background: var(--gold);
+            border: none;
+            padding: 14px 32px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--navy);
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-block;
+            text-decoration: none;
+            box-shadow: 0 8px 14px -6px rgba(212, 175, 55, 0.3);
+        }
+        .btn-primary:hover {
+            background: #b8972c;
+            transform: translateY(-3px);
+        }
+        .hero-image {
+            flex: 1;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        .hero-image img {
+            width: 100%;
+            display: block;
+            transition: transform 0.3s;
+        }
+        .hero-image:hover img {
+            transform: scale(1.02);
+        }
+
+        /* Section titles */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 60px 0 40px;
+            position: relative;
+            color: var(--navy);
+        }
+        .section-title:after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--gold);
+            display: block;
+            margin: 12px auto 0;
+            border-radius: 4px;
+        }
+
+        /* Cards & Grids */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        .info-card {
+            background: var(--white);
+            padding: 28px 24px;
+            border-radius: 28px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+            transition: all 0.3s;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .info-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--gold);
+        }
+        .info-card i {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 18px;
+        }
+        .info-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: var(--navy);
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+        .gallery-item {
+            border-radius: 24px;
+            overflow: hidden;
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            transition: 0.3s;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: 0.4s;
+            display: block;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        .gallery-caption {
+            padding: 12px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--navy);
+        }
+
+        /* Form */
+        .form-section {
+            background: var(--white);
+            border-radius: 48px;
+            padding: 48px 40px;
+            margin: 40px 0 60px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--gold);
+        }
+        .form-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        .form-info {
+            flex: 1;
+        }
+        .form-card {
+            flex: 1.5;
+            background: var(--gray-light);
+            border-radius: 32px;
+            padding: 32px;
+        }
+        .input-group {
+            margin-bottom: 18px;
+        }
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--navy);
+        }
+        .input-group input, .input-group select, .input-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--gray-mid);
+            border-radius: 24px;
+            font-family: 'Noto Sans Bengali', sans-serif;
+            background: white;
+            transition: 0.2s;
+        }
+        .input-group input:focus, .input-group select:focus, .input-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+        .submit-btn {
+            background: var(--navy);
+            color: white;
+            width: 100%;
+            padding: 14px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .submit-btn:hover {
+            background: #0c2a5a;
+            transform: scale(0.98);
+        }
+        .status-msg {
+            margin-top: 16px;
+            padding: 12px;
+            border-radius: 30px;
+            text-align: center;
+            font-weight: 500;
+            display: none;
+        }
+        .status-msg.success {
+            background: #dcfce7;
+            color: #15803d;
+            display: block;
+        }
+        .status-msg.error {
+            background: #fee2e2;
+            color: #b91c1c;
+            display: block;
+        }
+
+        /* Timetable */
+        .timetable-grid {
+            background: var(--white);
+            border-radius: 32px;
+            overflow-x: auto;
+            margin: 30px 0;
+        }
+        .timetable-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        .timetable-table th, .timetable-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--gray-mid);
+        }
+        .timetable-table th {
+            background: var(--navy);
+            color: var(--gold);
+            font-weight: 700;
+        }
+        .timetable-table tr:hover {
+            background: #fef9e6;
+        }
+
+        /* Contact + Map */
+        .contact-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .contact-details {
+            flex: 1;
+            background: var(--white);
+            border-radius: 28px;
+            padding: 28px;
+        }
+        .map-container {
+            flex: 1;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        footer {
+            background: var(--navy);
+            color: #cbd5e1;
+            padding: 40px 0;
+            text-align: center;
+            border-radius: 40px 40px 0 0;
+            margin-top: 50px;
+        }
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .form-section {
+                padding: 28px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo-area">
+                <img class="logo-img" src="https://i.ibb.co/spn64sBd/image-removebg-preview.png" alt="আয়েশা সিদ্দিক্বা লোগো">
+                <div class="school-name-text">
+                    আয়েশা সিদ্দিক্বা (রাঃ)<span>মডেল মিশন</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">হোম</a></li>
+                <li><a href="#about">পরিচয়</a></li>
+                <li><a href="#courses">পাঠক্রম</a></li>
+                <li><a href="#gallery">গ্যালারি</a></li>
+                <li><a href="#contact">যোগাযোগ</a></li>
+                <li><a href="#admission-form" class="apply-btn">ভর্তি আবেদন</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <h1>স্বাগতম <span class="gold-accent">আয়েশা সিদ্দিক্বা (রাঃ)</span><br>মডেল মিশনে</h1>
+                <p>ভারতের একটি ইসলামিক শিক্ষাপ্রতিষ্ঠান, যা কুরআন হিফজ, হাদীস, কিরাত এবং আধুনিক শিক্ষায় বিশেষায়িত। ধর্মীয় ও জাগতিক জ্ঞানের জন্য আবাসিক সুবিধা সহ একটি লালন-মূলক পরিবেশ।</p>
+                <a href="#admission-form" class="btn-primary"><i class="fas fa-graduation-cap"></i> ভর্তি আবেদন</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://i.ibb.co/B5Dpmz62/image.png" alt="আয়েশা সিদ্দিক্বা মডেল মিশন">
+            </div>
+        </div>
+    </section>
+
+    <!-- About + History + Mission -->
+    <div class="container" id="about">
+        <h2 class="section-title">আমাদের লক্ষ্য ও পরিচয়</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <i class="fas fa-landmark"></i>
+                <h3>ইতিহাস</h3>
+                <p><strong>প্রতিষ্ঠা: ২০২১ | প্রতিষ্ঠাতা: মাওলানা দাউদ হোসাইন</strong><br>আয়েশা সিদ্দিক্বা মডেল মিশন পশ্চিমবঙ্গের মুর্শিদাবাদ জেলায় অবস্থিত। এটি ইসলামী ও আধুনিক শিক্ষার সমন্বয় ঘটায়। কুরআন হিফজ, হাদীস, কিরাত, ইংরেজি, বাংলা, আরবি, গণিত, সাধারণ জ্ঞান, উর্দু, হিন্দি ইত্যাদি বিষয়ে বিশেষায়িত। আবাসিক ব্যবস্থা শিক্ষার্থীদের সামগ্রিক বিকাশ নিশ্চিত করে।</p>
+                <p style="margin-top: 12px;">প্রতিষ্ঠানটি ইসলামী মূল্যবোধ ও জ্ঞানার্জনের মাধ্যমে শিক্ষার্থীদের দ্বীনি ও দুনিয়াবি জীবনে দক্ষ করে গড়ে তোলার লক্ষ্যে কাজ করে যাচ্ছে।</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-bullhorn"></i>
+                <h3>মিশন ও ভিশন</h3>
+                <p><strong>মিশন:</strong> আধ্যাত্মিক, নৈতিক ও বুদ্ধিবৃত্তিক বিকাশের জন্য ব্যাপক শিক্ষা প্রদান। কুরআন হিফজ, হাদীস অধ্যয়ন এবং একাডেমিক বিষয়ের মাধ্যমে শিক্ষার্থীদের প্রস্তুত করা।<br>
+                <strong>ইসলামী দৃষ্টিভঙ্গি:</strong> কুরআন ও সুন্নাহর আলোকে জ্ঞান অর্জন, ঈমান ও শ্রেষ্ঠত্বের ভিত্তিতে একটি প্রজন্ম গঠন।</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-chalkboard-user"></i>
+                <h3>নেতৃত্ব</h3>
+                <p><strong>প্রধান / অধ্যক্ষ:</strong> মাওলানা দাউদ হোসাইন<br><strong>প্রতিষ্ঠা:</strong> ২০২১<br><strong>শিক্ষার্থী সংখ্যা:</strong> ১০০+ (ছাত্র ও ছাত্রী)<br><strong>শিক্ষক সংখ্যা:</strong> ২ জন (হিফজ ও একাডেমিক)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Courses & Education -->
+    <div class="container" id="courses">
+        <h2 class="section-title">পাঠক্রম ও শিক্ষা ব্যবস্থা</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <i class="fas fa-quran"></i>
+                <h3>ইসলামী শিক্ষা</h3>
+                <p><strong>হিফজ (পবিত্র কুরআন মুখস্থ)</strong> • নাজেরা • হাদীস অধ্যয়ন • কিরাত • দৈনিক দোয়া ও যিকির</p>
+                <p><strong>বয়সসীমা:</strong> ৭-১২ বছর • <strong>মেয়াদ:</strong> ৩ বছর (আবাসিক/অনাবাসিক)</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-book-open"></i>
+                <h3>সাধারণ শিক্ষা</h3>
+                <p>ইংরেজি, বাংলা, আরবি, গণিত, সাধারণ জ্ঞান, উর্দু, হিন্দি। ধর্মীয় ও জাগতিক সাফল্যের জন্য ভারসাম্যপূর্ণ পাঠক্রম।</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-home"></i>
+                <h3>আবাসিক সুবিধা</h3>
+                <p>নিরাপদ, ইসলামী পরিবেশে আবাসিক শিক্ষা। শৃঙ্খলা, চরিত্র গঠন ও সম্প্রদায়ের সাথে সম্পর্ক উন্নয়নের সুযোগ।</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admission Details + Form -->
+    <div class="container" id="admission">
+        <h2 class="section-title">ভর্তি তথ্য ২০২৫-২৬</h2>
+        <div class="form-section" id="admission-form">
+            <div class="form-flex">
+                <div class="form-info">
+                    <h3 style="color: var(--navy); font-size: 1.8rem;">📋 ভর্তি সংক্রান্ত তথ্য</h3>
+                    <ul style="margin: 20px 0; list-style: none;">
+                        <li><i class="fas fa-check-circle" style="color: var(--gold);"></i> <strong>প্রক্রিয়া:</strong> বিদ্যালয়ে সরাসরি নিবন্ধন ও সাক্ষাৎকার</li>
+                        <li><i class="fas fa-calendar-alt"></i> <strong>ভর্তি সময়:</strong> জানুয়ারি - মার্চ</li>
+                        <li><i class="fas fa-id-card"></i> <strong>প্রয়োজনীয় কাগজপত্র:</strong> আধার কার্ড, অভিভাবকের পরিচয়পত্র, ঠিকানার প্রমাণ, পূর্ববর্তী বিদ্যালয়ের ছাড়পত্র (যদি থাকে)</li>
+                        <li><i class="fas fa-rupee-sign"></i> <strong>ভর্তি ফি:</strong> ₹১২,০০০ (বিশেষ ছাড়ে ₹৮,০০০) + মাসিক ফি: ₹৩,৫০০</li>
+                        <li><i class="fas fa-users"></i> <strong>মোট আসন:</strong> সীমিত (ছাত্র ও ছাত্রী উভয়)</li>
+                    </ul>
+                    <div style="background: #fff6e8; padding: 16px; border-radius: 24px;">
+                        <i class="fas fa-phone-alt"></i> প্রশ্নের জন্য: +91 7583986405 / +91 8101396385
+                    </div>
+                </div>
+                <div class="form-card">
+                    <h3 style="margin-bottom: 20px;">✍️ ভর্তি আবেদন ফর্ম</h3>
+                    <form id="admissionForm">
+                        <div class="input-group"><label>শিক্ষার্থীর পুরো নাম *</label><input type="text" id="studentName" required></div>
+                        <div class="input-group"><label>জন্ম তারিখ *</label><input type="date" id="dob" required></div>
+                        <div class="input-group"><label>লিঙ্গ *</label><select id="gender" required><option>পুরুষ</option><option>মহিলা</option></select></div>
+                        <div class="input-group"><label>আবেদনের কোর্স *</label><select id="course"><option>হিফজ (কুরআন মুখস্থ)</option><option>সাধারণ শিক্ষা</option><option>উভয় (হিফজ + সাধারণ)</option></select></div>
+                        <div class="input-group"><label>অভিভাবকের নাম *</label><input type="text" id="parentName" required></div>
+                        <div class="input-group"><label>অভিভাবকের ইমেইল *</label><input type="email" id="parentEmail" required></div>
+                        <div class="input-group"><label>মোবাইল নম্বর *</label><input type="tel" id="phone" required></div>
+                        <div class="input-group"><label>ঠিকানা</label><textarea id="address" rows="2"></textarea></div>
+                        <div class="input-group"><label>অতিরিক্ত বার্তা</label><textarea id="message" rows="2" placeholder="ভর্তি, হিফজ ইত্যাদি সম্পর্কে যেকোনো প্রশ্ন"></textarea></div>
+                        <button type="submit" class="submit-btn" id="sendBtn"><i class="fas fa-paper-plane"></i> ভর্তি আবেদন জমা দিন</button>
+                        <div id="formStatus" class="status-msg"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Activities: Islamic Programs, Competitions, Events -->
+    <div class="container">
+        <h2 class="section-title">ধর্মীয় ও শিক্ষা কার্যক্রম</h2>
+        <div class="info-grid">
+            <div class="info-card"><i class="fas fa-mosque"></i><h3>ইসলামী অনুষ্ঠান</h3><p>কুরআন তিলাওয়াত, রমজান প্রোগ্রাম, ইসলামী বয়ান, দোয়া ও যিকির, আনজুমান সমাবেশ।</p></div>
+            <div class="info-card"><i class="fas fa-trophy"></i><h3>প্রতিযোগিতা</h3><p>কুরআন তিলাওয়াত • হিফজ প্রতিযোগিতা • ইসলামিক কুইজ • বক্তৃতা • রচনা প্রতিযোগিতা।</p></div>
+            <div class="info-card"><i class="fas fa-calendar-week"></i><h3>বার্ষিক অনুষ্ঠান</h3><p>বার্ষিক অনুষ্ঠান • পুরস্কার বিতরণী • ইসলামী উদযাপন • শিক্ষা সফর • শিক্ষার্থী সমাবেশ।</p></div>
+        </div>
+    </div>
+
+    <!-- Gallery Section with Provided Images -->
+    <div class="container" id="gallery">
+        <h2 class="section-title">ক্যাম্পাস গ্যালারি</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="https://i.ibb.co/JRjRtjdB/image.png" alt="বিদ্যালয়ের সামনের দৃশ্য"><div class="gallery-caption">বিদ্যালয়ের সামনের দৃশ্য</div></div>
+            <div class="gallery-item"><img src="https://i.ibb.co/1GG2GDmj/image.png" alt="বিদ্যালয় ভবন"><div class="gallery-caption">বিদ্যালয় ভবন</div></div>
+            <div class="gallery-item"><img src="https://i.ibb.co/fdzcwQD1/image.png" alt="শ্রেণীকক্ষ"><div class="gallery-caption">শ্রেণীকক্ষ</div></div>
+            <div class="gallery-item"><img src="https://i.ibb.co/xtYWN5XN/image.png" alt="ছাত্র বিভাগ"><div class="gallery-caption">ছাত্র বিভাগ</div></div>
+            <div class="gallery-item"><img src="https://i.ibb.co/BKZVmhhw/image.png" alt="ছাত্রী বিভাগ"><div class="gallery-caption">ছাত্রী বিভাগ</div></div>
+            <div class="gallery-item"><img src="https://i.ibb.co/zVHH6q7C/image.png" alt="বার্ষিক অনুষ্ঠান"><div class="gallery-caption">বার্ষিক অনুষ্ঠান</div></div>
+            <div class="gallery-item"><img src="https://i.ibb.co/TD8BHzkq/image.png" alt="ইসলামী উদযাপন"><div class="gallery-caption">ইসলামী উদযাপন</div></div>
+        </div>
+    </div>
+
+    <!-- Daily Timetable -->
+    <div class="container">
+        <h2 class="section-title">সাপ্তাহিক সময়সূচি</h2>
+        <div class="timetable-grid">
+            <table class="timetable-table">
+                <thead>
+                    <tr><th>দিন</th><th>সময়</th> </thead>
+                <tbody>
+                    <tr><td>সোমবার</td><td>সকাল ৯:০০ – রাত ৯:০০</td></tr>
+                    <tr><td>মঙ্গলবার</td><td>সকাল ৯:০০ – দুপুর ১:০০</td></tr>
+                    <tr><td>বুধবার</td><td>সকাল ৮:০০ – রাত ৯:০০</td></tr>
+                    <tr><td>বৃহস্পতিবার</td><td>সকাল ৬:০০ – সকাল ৮:৩০</td></tr>
+                    <tr><td>শুক্রবার</td><td>বন্ধ (জুম‘আহ প্রস্তুতি)</td></tr>
+                    <tr><td>শনিবার</td><td>সাপ্তাহিক ছুটির দিন / ঐচ্ছিক কার্যক্রম</td></tr>
+                    <tr><td>রবিবার</td><td>সকাল ৬:০০ – রাত ৮:০০</td></tr>
+                </tbody>
+             </table>
+            <p style="padding: 12px; font-size: 0.8rem;">*সময়সূচি ইসলামিক ক্যালেন্ডার ও ঋতু অনুযায়ী পরিবর্তনশীল। আবাসিক শিক্ষার্থীরা নির্ধারিত রুটিন অনুসরণ করে।</p>
+        </div>
+    </div>
+
+    <!-- Contact + Map + Social -->
+    <div class="container" id="contact">
+        <h2 class="section-title">যোগাযোগ করুন</h2>
+        <div class="contact-wrap">
+            <div class="contact-details">
+                <i class="fas fa-map-marker-alt" style="font-size: 2rem; color: var(--gold);"></i>
+                <h3>ঠিকানা</h3>
+                <p>হোসেন নগর মাঠ পাড়া, কোলান রাধাকান্ত পুর, ভগবানগোলা, জিয়াগঞ্জ, পশ্চিমবঙ্গ ৭৪২১২৩</p>
+                <p><i class="fas fa-phone"></i> +91 7583986405 / +91 8101396385</p>
+                <p><i class="fas fa-envelope"></i> ayeshasiddiqamodelmission@gmail.com</p>
+                <div class="social-links" style="margin-top: 20px;">
+                    <a href="https://www.youtube.com/channel/UC7t7MyDiMLtUUzLindFz1Aw" target="_blank" style="color: var(--navy); margin-right: 20px; font-size: 1.8rem;"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/mvjvig/" target="_blank" style="color: var(--navy); margin-right: 20px; font-size: 1.8rem;"><i class="fab fa-facebook"></i></a>
+                    <a href="https://ayesha-siddiqa-model-mission.created.app/" target="_blank" style="color: var(--navy); font-size: 1.8rem;"><i class="fas fa-globe"></i></a>
+                </div>
+            </div>
+            <div class="map-container">
+                <iframe src="https://maps.google.com/maps?q=742123%20Bhagwangola%20Murshidabad&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="280" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p><i class="fas fa-school"></i> আয়েশা সিদ্দিক্বা (রাঃ) মডেল মিশন | প্রতিষ্ঠা ২০২১</p>
+        <p>📖 ঈমান ও শ্রেষ্ঠত্বের সাথে শিক্ষা | পশ্চিমবঙ্গের আবাসিক ইসলামিক বিদ্যালয়</p>
+        <p style="margin-top: 12px;">📍 হোসেন নগর মাঠ পাড়া, কোলান রাধাকান্ত পুর, ভগবানগোলা, জিয়াগঞ্জ, পশ্চিমবঙ্গ ৭৪২১২৩ | 📞 +91 7583986405</p>
+        <p style="margin-top: 18px; font-size: 0.8rem;">© ২০২৫ — হাফেজ ও পণ্ডিত তৈরির প্রত্যয়</p>
+    </div>
+</footer>
+
+<script>
+    // EmailJS configuration (UPDATED template ID)
+    const EMAILJS_SERVICE_ID = "service_z3nf2fq";
+    const EMAILJS_TEMPLATE_ID = "template_vydzecp";
+    const EMAILJS_PUBLIC_KEY = "WSaZxemdXBiCofK2f";
+
+    // Initialize EmailJS
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+
+    const form = document.getElementById("admissionForm");
+    const statusDiv = document.getElementById("formStatus");
+    const submitBtn = document.getElementById("sendBtn");
+
+    function showStatus(message, isError = false) {
+        statusDiv.textContent = message;
+        statusDiv.className = `status-msg ${isError ? 'error' : 'success'}`;
+        setTimeout(() => statusDiv.className = "status-msg", 5000);
+    }
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const studentName = document.getElementById("studentName").value.trim();
+        const dob = document.getElementById("dob").value;
+        const gender = document.getElementById("gender").value;
+        const course = document.getElementById("course").value;
+        const parentName = document.getElementById("parentName").value.trim();
+        const parentEmail = document.getElementById("parentEmail").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const address = document.getElementById("address").value.trim();
+        const messageText = document.getElementById("message").value.trim();
+
+        if (!studentName || !dob || !gender || !parentName || !parentEmail || !phone) {
+            showStatus("❌ দয়া করে সমস্ত প্রয়োজনীয় (*) ক্ষেত্র পূরণ করুন।", true);
+            return;
+        }
+        const emailPattern = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
+        if (!emailPattern.test(parentEmail)) {
+            showStatus("❌ সঠিক ইমেইল ঠিকানা দিন।", true);
+            return;
+        }
+        if (phone.length < 8) {
+            showStatus("❌ সঠিক মোবাইল নম্বর দিন।", true);
+            return;
+        }
+
+        const templateParams = {
+            student_name: studentName,
+            date_of_birth: dob,
+            gender: gender,
+            course_applying: course,
+            parent_name: parentName,
+            parent_email: parentEmail,
+            phone_number: phone,
+            address: address || "প্রদান করা হয়নি",
+            additional_message: messageText || "কোন বার্তা নেই",
+            submitted_date: new Date().toLocaleString('bn-BD'),
+            school_name: "আয়েশা সিদ্দিক্বা (রাঃ) মডেল মিশন"
+        };
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> পাঠানো হচ্ছে...';
+        try {
+            await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+            showStatus("🎉 ভর্তির আবেদন সফলভাবে জমা হয়েছে! ইনশাআল্লাহ আমাদের টিম শীঘ্রই যোগাযোগ করবে।", false);
+            form.reset();
+        } catch (err) {
+            console.error(err);
+            showStatus("❌ আবেদন জমা দিতে ব্যর্থ হয়েছে। ইন্টারনেট সংযোগ বা EmailJS সেটিংস চেক করুন।", true);
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ভর্তি আবেদন জমা দিন';
+        }
+    });
+</script>
+</body>
+</html>
